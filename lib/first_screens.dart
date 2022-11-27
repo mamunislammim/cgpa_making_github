@@ -48,15 +48,14 @@ class _FirstScreenState extends State<FirstScreen> {
     }
   }
 
-  String? _errorTest(String values){
+  String? _errorTest(String values) {
     double? r = double.tryParse(values.replaceAll(RegExp(r'[^0-9\.]'), ''));
-     print(r);
-      if(values.isEmpty){
-        return null;
-      }
-    if(r! >=2.00 && r<=4.00){
+    if (values.isEmpty) {
       return null;
-    } else{
+    }
+    if (r! >= 2.00 && r <= 4.00) {
+      return null;
+    } else {
       return "Invalid Input..Gpa (2.00 - 4.00)";
     }
   }
@@ -77,14 +76,14 @@ class _FirstScreenState extends State<FirstScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0XFF144E67),
+      backgroundColor: const Color(0XFF144E67),
       body: SafeArea(
         child: Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
               image: DecorationImage(
-                fit: BoxFit.fill,
-                image: AssetImage('image/cgpas.jpg'),
-              )),
+            fit: BoxFit.fill,
+            image: AssetImage('image/cgpas.jpg'),
+          )),
           child: ListView(children: [
             Padding(
               padding: const EdgeInsets.only(top: 18, left: 10, right: 10),
@@ -92,36 +91,35 @@ class _FirstScreenState extends State<FirstScreen> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   Center(
-                      child: Card(
-                        color: Color(0XFF420B70),
-                        shape: RoundedRectangleBorder(
-                            side: BorderSide(color: Colors.white),
-                            borderRadius: BorderRadius.circular(12)),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            "Know Your CGPA",
-                            style:
-                            TextStyle(fontSize: 25, color: Colors.greenAccent),
-                          ),
+                      child: Container(
+                        padding: const EdgeInsets.only(top: 2,bottom: 3,left: 10,right: 10),
+                        decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(10),
+                          border: Border.all(color: Colors.white),
+                          gradient: LinearGradient(colors: [Colors.blue,Colors.green.withOpacity(.5)],end: Alignment.topLeft,begin: Alignment.bottomLeft)
+                        ),
+                        child: const Text(
+                          "Know Your CGPA",
+                          style:
+                              TextStyle(fontSize: 25, color: Colors.greenAccent),
                         ),
                       )),
-                  SizedBox(
+                  const SizedBox(
                     height: 15,
                   ),
-                  Card(
+                  const Card(
                     color: Color(0xff2A6CCA),
                     child: Padding(
-                      padding: const EdgeInsets.only(
-                          top: 3, bottom: 3, left: 8, right: 8),
+                      padding:
+                          EdgeInsets.only(top: 3, bottom: 3, left: 8, right: 8),
                       child: Text(
                         "Diploma in Engineering\n            Probidhan : 16",
                         style:
-                        TextStyle(color: Color(0XFFFEFEFE), fontSize: 11),
+                            TextStyle(color: Color(0XFFFEFEFE), fontSize: 11),
                       ),
                     ),
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 25,
                   ),
                   Row(
@@ -129,32 +127,31 @@ class _FirstScreenState extends State<FirstScreen> {
                     children: [
                       Column(
                         children: [
-                          Text(
+                          const Text(
                             "1st Semester ",
                             style: TextStyle(color: Colors.white70),
                           ),
-                          Container(
+                          SizedBox(
                             height: 30,
                             width: 110,
                             child: TextField(
-                              onChanged: (value){
-                                setState(() {
-                                });
+                              onChanged: (value) {
+                                setState(() {});
                               },
                               textAlign: TextAlign.center,
                               keyboardType: TextInputType.number,
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               controller: _first,
                               decoration: InputDecoration(
-                                errorStyle: TextStyle(fontSize: 9),
+                                errorStyle: const TextStyle(fontSize: 9),
                                 errorText: _errorTest(_first.value.text),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15),
                                     borderSide:
-                                    BorderSide(color: Colors.white)),
+                                        const BorderSide(color: Colors.white)),
                                 border: OutlineInputBorder(
                                     borderSide:
-                                    BorderSide(color: Colors.white70),
+                                        const BorderSide(color: Colors.white70),
                                     borderRadius: BorderRadius.circular(19)),
                               ),
                             ),
@@ -163,29 +160,28 @@ class _FirstScreenState extends State<FirstScreen> {
                       ),
                       Column(
                         children: [
-                          Text("2nd Semester ",
+                          const Text("2nd Semester ",
                               style: TextStyle(color: Colors.white70)),
                           Padding(
                             padding: const EdgeInsets.only(left: 10, right: 10),
-                            child: Container(
+                            child: SizedBox(
                               height: 30,
                               width: 110,
                               child: TextField(
-                                onChanged: (value){
-                                  setState(() {
-                                  });
+                                onChanged: (value) {
+                                  setState(() {});
                                 },
                                 textAlign: TextAlign.center,
                                 keyboardType: TextInputType.number,
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                                 controller: _second,
                                 decoration: InputDecoration(
-                                  errorStyle: TextStyle(fontSize: 9),
+                                  errorStyle: const TextStyle(fontSize: 9),
                                   errorText: _errorTest(_second.value.text),
                                   enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(15),
-                                      borderSide:
-                                      BorderSide(color: Colors.white)),
+                                      borderSide: const BorderSide(
+                                          color: Colors.white)),
                                   border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(19)),
                                 ),
@@ -196,7 +192,7 @@ class _FirstScreenState extends State<FirstScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
@@ -204,28 +200,26 @@ class _FirstScreenState extends State<FirstScreen> {
                     children: [
                       Column(
                         children: [
-                          Text("3rd Semester ",
+                          const Text("3rd Semester ",
                               style: TextStyle(color: Colors.white70)),
-                          Container(
+                          SizedBox(
                             height: 30,
                             width: 110,
                             child: TextField(
-                              onChanged: (value){
-                                setState(() {
-
-                                });
+                              onChanged: (value) {
+                                setState(() {});
                               },
                               textAlign: TextAlign.center,
                               keyboardType: TextInputType.number,
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               controller: _third,
                               decoration: InputDecoration(
-                                errorStyle: TextStyle(fontSize: 9),
+                                errorStyle: const TextStyle(fontSize: 9),
                                 errorText: _errorTest(_third.value.text),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15),
                                     borderSide:
-                                    BorderSide(color: Colors.white)),
+                                        const BorderSide(color: Colors.white)),
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(19)),
                               ),
@@ -235,30 +229,28 @@ class _FirstScreenState extends State<FirstScreen> {
                       ),
                       Column(
                         children: [
-                          Text("4th Semester ",
+                          const Text("4th Semester ",
                               style: TextStyle(color: Colors.white70)),
                           Padding(
                             padding: const EdgeInsets.only(left: 10, right: 10),
-                            child: Container(
+                            child: SizedBox(
                               height: 30,
                               width: 110,
                               child: TextField(
-                                onChanged: (value){
-                                  setState(() {
-
-                                  });
+                                onChanged: (value) {
+                                  setState(() {});
                                 },
                                 textAlign: TextAlign.center,
                                 keyboardType: TextInputType.number,
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                                 controller: _fourth,
                                 decoration: InputDecoration(
-                                  errorStyle: TextStyle(fontSize: 9),
-                                  errorText:  _errorTest(_fourth.value.text),
+                                  errorStyle: const TextStyle(fontSize: 9),
+                                  errorText: _errorTest(_fourth.value.text),
                                   enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(15),
-                                      borderSide:
-                                      BorderSide(color: Colors.white)),
+                                      borderSide: const BorderSide(
+                                          color: Colors.white)),
                                   border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(19)),
                                 ),
@@ -269,7 +261,7 @@ class _FirstScreenState extends State<FirstScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
@@ -277,28 +269,26 @@ class _FirstScreenState extends State<FirstScreen> {
                     children: [
                       Column(
                         children: [
-                          Text("5th Semester ",
+                          const Text("5th Semester ",
                               style: TextStyle(color: Colors.white70)),
-                          Container(
+                          SizedBox(
                             height: 30,
                             width: 110,
                             child: TextField(
-                              onChanged: (value){
-                                setState(() {
-
-                                });
+                              onChanged: (value) {
+                                setState(() {});
                               },
                               textAlign: TextAlign.center,
                               keyboardType: TextInputType.number,
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               controller: _fifth,
                               decoration: InputDecoration(
-                                errorStyle: TextStyle(fontSize: 9),
+                                errorStyle: const TextStyle(fontSize: 9),
                                 errorText: _errorTest(_fifth.value.text),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15),
                                     borderSide:
-                                    BorderSide(color: Colors.white)),
+                                        const BorderSide(color: Colors.white)),
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(19)),
                               ),
@@ -308,30 +298,28 @@ class _FirstScreenState extends State<FirstScreen> {
                       ),
                       Column(
                         children: [
-                          Text("6th Semester ",
+                          const Text("6th Semester ",
                               style: TextStyle(color: Colors.white70)),
                           Padding(
                             padding: const EdgeInsets.only(left: 10, right: 10),
-                            child: Container(
+                            child: SizedBox(
                               height: 30,
                               width: 110,
                               child: TextField(
-                                onChanged: (value){
-                                  setState(() {
-
-                                  });
+                                onChanged: (value) {
+                                  setState(() {});
                                 },
                                 textAlign: TextAlign.center,
                                 keyboardType: TextInputType.number,
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                                 controller: _sixth,
                                 decoration: InputDecoration(
-                                  errorStyle: TextStyle(fontSize: 9),
+                                  errorStyle: const TextStyle(fontSize: 9),
                                   errorText: _errorTest(_sixth.value.text),
                                   enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(15),
-                                      borderSide:
-                                      BorderSide(color: Colors.white)),
+                                      borderSide: const BorderSide(
+                                          color: Colors.white)),
                                   border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(19)),
                                 ),
@@ -342,7 +330,7 @@ class _FirstScreenState extends State<FirstScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
                   Row(
@@ -350,27 +338,26 @@ class _FirstScreenState extends State<FirstScreen> {
                     children: [
                       Column(
                         children: [
-                          Text("7th Semester ",
+                          const Text("7th Semester ",
                               style: TextStyle(color: Colors.white70)),
-                          Container(
+                          SizedBox(
                             height: 30,
                             width: 110,
                             child: TextField(
-                              onChanged: (value){
-                                setState(() {
-                                 });
+                              onChanged: (value) {
+                                setState(() {});
                               },
                               textAlign: TextAlign.center,
                               keyboardType: TextInputType.number,
-                              style: TextStyle(color: Colors.white),
+                              style: const TextStyle(color: Colors.white),
                               controller: _seventh,
                               decoration: InputDecoration(
-                                errorStyle: TextStyle(fontSize: 9),
+                                errorStyle: const TextStyle(fontSize: 9),
                                 errorText: _errorTest(_seventh.value.text),
                                 enabledBorder: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(15),
                                     borderSide:
-                                    BorderSide(color: Colors.white)),
+                                        const BorderSide(color: Colors.white)),
                                 border: OutlineInputBorder(
                                     borderRadius: BorderRadius.circular(19)),
                               ),
@@ -380,29 +367,28 @@ class _FirstScreenState extends State<FirstScreen> {
                       ),
                       Column(
                         children: [
-                          Text("8th Semester ",
+                          const Text("8th Semester ",
                               style: TextStyle(color: Colors.white70)),
                           Padding(
                             padding: const EdgeInsets.only(left: 10, right: 10),
-                            child: Container(
+                            child: SizedBox(
                               height: 30,
                               width: 110,
                               child: TextField(
-                                onChanged: (value){
-                                  setState(() {
-                                   });
+                                onChanged: (value) {
+                                  setState(() {});
                                 },
                                 textAlign: TextAlign.center,
                                 keyboardType: TextInputType.number,
-                                style: TextStyle(color: Colors.white),
+                                style: const TextStyle(color: Colors.white),
                                 controller: _eight,
                                 decoration: InputDecoration(
-                                  errorStyle: TextStyle(fontSize: 9),
+                                  errorStyle: const TextStyle(fontSize: 9),
                                   errorText: _errorTest(_eight.value.text),
                                   enabledBorder: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(15),
-                                      borderSide:
-                                      BorderSide(color: Colors.white)),
+                                      borderSide: const BorderSide(
+                                          color: Colors.white)),
                                   border: OutlineInputBorder(
                                       borderRadius: BorderRadius.circular(19)),
                                 ),
@@ -413,7 +399,7 @@ class _FirstScreenState extends State<FirstScreen> {
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 45,
                   ),
                   Row(
@@ -436,15 +422,15 @@ class _FirstScreenState extends State<FirstScreen> {
                         child: Card(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
-                              side: BorderSide(color: Colors.white)),
-                          color: Color(0XFF134083),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
+                              side: const BorderSide(color: Colors.white)),
+                          color: const Color(0XFF134083),
+                          child: const Padding(
+                            padding: EdgeInsets.only(
                                 top: 10, bottom: 10, left: 17, right: 17),
                             child: Text(
                               "Reset",
                               style:
-                              TextStyle(color: Colors.white, fontSize: 16),
+                                  TextStyle(color: Colors.white, fontSize: 16),
                             ),
                           ),
                         ),
@@ -457,7 +443,7 @@ class _FirstScreenState extends State<FirstScreen> {
                             _display();
                             ElegantNotification.success(
                               displayCloseButton: true,
-                              title: Text("Congratulations.!!",
+                              title: const Text("Congratulations.!!",
                                   style: TextStyle(
                                       color: Colors.white,
                                       fontWeight: FontWeight.bold,
@@ -472,11 +458,12 @@ class _FirstScreenState extends State<FirstScreen> {
                                 children: [
                                   Text(
                                     "CGPA :    $result",
-                                    style: TextStyle(color: Colors.white),
+                                    style: const TextStyle(color: Colors.white),
                                   ),
                                   Text("Grade : ${_gradeMaking()}",
-                                      style: TextStyle(color: Colors.white)),
-                                  SizedBox(
+                                      style:
+                                          const TextStyle(color: Colors.white)),
+                                  const SizedBox(
                                     height: 40,
                                   ),
                                   // Row(
@@ -493,37 +480,37 @@ class _FirstScreenState extends State<FirstScreen> {
                               ),
                               onActionPressed: () {},
                               animation: AnimationType.fromRight,
-                              background: Color(0xff151868),
-                              toastDuration: Duration(seconds: 56),
+                              background: const Color(0xff151868),
+                              toastDuration: const Duration(seconds: 56),
                               notificationPosition: NotificationPosition.center,
-                              description: Text(""),
+                              description: const Text(""),
                             ).show(context);
                           });
                         },
                         child: Card(
                           shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(15),
-                              side: BorderSide(color: Colors.white)),
-                          color: Color(0XFF134083),
-                          child: Padding(
-                            padding: const EdgeInsets.only(
+                              side: const BorderSide(color: Colors.white)),
+                          color: const Color(0XFF134083),
+                          child: const Padding(
+                            padding: EdgeInsets.only(
                                 top: 10, bottom: 10, left: 13, right: 13),
                             child: Text(
                               "Submit",
                               style:
-                              TextStyle(color: Colors.white, fontSize: 16),
+                                  TextStyle(color: Colors.white, fontSize: 16),
                             ),
                           ),
                         ),
                       ),
                     ],
                   ),
-                  SizedBox(
+                  const SizedBox(
                     height: 30,
                   ),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
+                    children: const [
                       Text(
                         "Powered by : Md Mamun Islam",
                         style: TextStyle(color: Colors.blueGrey),
